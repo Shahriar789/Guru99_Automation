@@ -1,0 +1,2 @@
+Guru99_Automation
+This project contains automation scripts for testing the Guru99 demo website using Selenium WebDriver. It covers basic UI interactions such as navigation, element selection, form handling, and validation. The goal of this repository is to practice and demonstrate automation testing skills using Java, Selenium, and web testing concepts.
