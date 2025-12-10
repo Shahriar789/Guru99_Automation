@@ -47,24 +47,33 @@ public class Registration  {
         //checkbox
         driver.findElement(By.id("licencetype_f")).click();
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,500)");
+// Scroll Down
+       // JavascriptExecutor js = (JavascriptExecutor) driver;
+       // js.executeScript("window.scrollBy(0,500)");
 
         //dropdown_2
-        Select licencePeriod = new Select(driver.findElement(By.xpath("/html[1]/body[1]/div[3]/form[1]/div[2]/div[5]/select[1]")));
-        licencePeriod.selectByVisibleText("5 years");
+      //  Select licencePeriod = new Select(driver.findElement(By.xpath("/html[1]/body[1]/div[3]/form[1]/div[2]/div[5]/select[1]")));
+      //  licencePeriod.selectByVisibleText("5 years");
 
 
 
         //dropdown_3
 
         Select occupation = new Select(driver.findElement(By.id("user_occupation_id")));
-        occupation.selectByVisibleText("Engineer");
+        occupation.selectByVisibleText("Social worker");
 
+        // Address details
         driver.findElement(By.id("user_address_attributes_street")).sendKeys("123 Main St");
         driver.findElement(By.id("user_address_attributes_city")).sendKeys("Anytown");
         driver.findElement(By.id("user_address_attributes_county")).sendKeys("Anycounty");
         driver.findElement(By.id("user_address_attributes_postcode")).sendKeys("12345");
+        driver.findElement(By.id("user_user_detail_attributes_email")).sendKeys("x@gmail.com");
+        driver.findElement(By.id("user_user_detail_attributes_password")).sendKeys("password123");
+        driver.findElement(By.id("user_user_detail_attributes_password_confirmation")).sendKeys("password123");
+
+
+        driver.findElement(By.id("resetform")).click();
+
 
 //        WebElement x = driver.findElement(By.id("user_dateofbirth_3i"));
 //        Select y = new Select(x);
@@ -79,5 +88,17 @@ public class Registration  {
 //        d.selectByVisibleText("2000");
 
         driver.quit();
+
+//        // After reset form is empty now again fill the form
+///  for reset and again filled up
+//        driver.findElement(By.id("user_firstname")).sendKeys("xxxx");
+//        driver.findElement(By.id("user_surname")).sendKeys("yyyy");
+//        driver.findElement(By.id("user_phone")).sendKeys("1234567890");
+//
+//
+//
+//        //checkbox
+//        driver.findElement(By.id("licencetype_t")).click();
+
     }
 }
