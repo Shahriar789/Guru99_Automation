@@ -1,6 +1,7 @@
 package Part01;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -39,18 +40,31 @@ public class Registration  {
         Select dayDropdown = new Select(driver.findElement(By.id("user_dateofbirth_3i")));
         dayDropdown.selectByVisibleText("10");
         Select monthDropdown = new Select(driver.findElement(By.id("user_dateofbirth_2i")));
-        monthDropdown.selectByVisibleText("May");
+        monthDropdown.selectByVisibleText("January");
         Select yearDropdown = new Select(driver.findElement(By.id("user_dateofbirth_1i")));
-        yearDropdown.selectByVisibleText("1990");
+        yearDropdown.selectByVisibleText("1995");
 
         //checkbox
-        driver.findElement(By.id("licencetype_t")).click();
+        driver.findElement(By.id("licencetype_f")).click();
 
-        Select licencePeriod = new Select(driver.findElement(By.id("user_licenceperiod")));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
+
+        //dropdown_2
+        Select licencePeriod = new Select(driver.findElement(By.xpath("/html[1]/body[1]/div[3]/form[1]/div[2]/div[5]/select[1]")));
         licencePeriod.selectByVisibleText("5 years");
+
+
+
+        //dropdown_3
+
         Select occupation = new Select(driver.findElement(By.id("user_occupation_id")));
         occupation.selectByVisibleText("Engineer");
 
+        driver.findElement(By.id("user_address_attributes_street")).sendKeys("123 Main St");
+        driver.findElement(By.id("user_address_attributes_city")).sendKeys("Anytown");
+        driver.findElement(By.id("user_address_attributes_county")).sendKeys("Anycounty");
+        driver.findElement(By.id("user_address_attributes_postcode")).sendKeys("12345");
 
 //        WebElement x = driver.findElement(By.id("user_dateofbirth_3i"));
 //        Select y = new Select(x);
